@@ -32,8 +32,7 @@ namespace LeagueHudRevolution
         {
 
             InitializeComponent();
-            if (File.Exists(Directory.GetCurrentDirectory() + "\\Path.txt"))
-            {
+            
                 richTextBox.Document.Blocks.Clear();
                 
                 //Apresentar HUDS na lista
@@ -52,28 +51,7 @@ namespace LeagueHudRevolution
                 richTextBox.AppendText(System.Environment.NewLine + horas + "Initializing . . .");
                 richTextBox.AppendText(System.Environment.NewLine + horas + "League Huds Revolution started successfully.");
                 richTextBox.AppendText(System.Environment.NewLine + horas + "Hope you enjoy it!");
-            }
-            else
-            {
-                EscolhePasta();
-                
-                richTextBox.Document.Blocks.Clear();
-                // Apresentar HUDS na lista
-                string[] cucu = Directory.GetDirectories(Directory.GetCurrentDirectory() + "\\Huds\\");
-                richTextBox.AppendText(horas + "Loading assets . . .");
-                foreach (string Info in cucu)
-                {
-                    DirectoryInfo crica = new DirectoryInfo(Info);
-
-                    listBox.Items.Add(crica.Name);
-                    richTextBox.AppendText(System.Environment.NewLine + horas + crica.Name + " loaded");
-                }
-                listBox.SelectedIndex = 0;
-                richTextBox.AppendText(System.Environment.NewLine + horas + "Initializing . . .");
-                richTextBox.AppendText(System.Environment.NewLine + horas + "League Huds Revolution started successfully.");
-                richTextBox.AppendText(System.Environment.NewLine + horas + "Hope you enjoy it!");
-                //Fim apresentar
-            }
+            
 
         }
 
@@ -139,14 +117,7 @@ namespace LeagueHudRevolution
             ze.Show();
         }
 
-        private void EscolhePasta()
-        {
-            Ookii.Dialogs.Wpf.VistaFolderBrowserDialog pasta = new Ookii.Dialogs.Wpf.VistaFolderBrowserDialog();
-            pasta.Description = "Please select your League of Legends folder";
-            pasta.RootFolder = Environment.SpecialFolder.MyComputer;
-            pasta.ShowDialog();
-            File.WriteAllText(Directory.GetCurrentDirectory() + "\\path.txt", pasta.SelectedPath.ToString());
-        }
+        
 
         private void button1_Click(object sender, RoutedEventArgs e) //Restore
         {
