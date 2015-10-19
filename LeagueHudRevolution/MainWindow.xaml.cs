@@ -28,6 +28,7 @@ namespace LeagueHudRevolution
             if (File.Exists(Directory.GetCurrentDirectory() + "\\Path.txt"))
             {
                 DirectoryInfo versao = new DirectoryInfo(Directory.GetDirectories(File.ReadAllText(Directory.GetCurrentDirectory() + "\\Path.txt") + "\\RADS\\solutions\\lol_game_client_sln\\releases\\")[0]);
+                //Verificar se as pastas menu e hud existem
                 if (Directory.Exists(File.ReadAllText(Directory.GetCurrentDirectory() + "\\Path.txt") + "\\RADS\\solutions\\lol_game_client_sln\\releases\\" + versao.Name + "\\deploy\\DATA\\menu") == true)
                 {
                     CheckHUD();
@@ -49,6 +50,7 @@ namespace LeagueHudRevolution
             {
                 EscolhePasta();
                 DirectoryInfo versao = new DirectoryInfo(Directory.GetDirectories(File.ReadAllText(Directory.GetCurrentDirectory() + "\\Path.txt") + "\\RADS\\solutions\\lol_game_client_sln\\releases\\")[0]);
+                //Verificar se a pasta menu existe
                 if (Directory.Exists(File.ReadAllText(Directory.GetCurrentDirectory() + "\\Path.txt") + "\\RADS\\solutions\\lol_game_client_sln\\releases\\" + versao.Name + "\\deploy\\DATA\\menu") == true)
                 {
                     CheckHUD();
@@ -68,16 +70,19 @@ namespace LeagueHudRevolution
             }
             }
 
+        //Sistema de navegacao entre paginas
         public void Navigate(UserControl nextPage)
         {
             this.Content = nextPage;
         }
 
+        //Apagar imagem temporaria qnd o programa e fechado
         private void MetroWindow_Closed(object sender, EventArgs e)
         {
             File.Delete(Directory.GetCurrentDirectory() + "\\temp.jpg");
         }
 
+        //Funcao para escolher pasta do league
         private void EscolhePasta()
         {
             Ookii.Dialogs.Wpf.VistaFolderBrowserDialog pasta = new Ookii.Dialogs.Wpf.VistaFolderBrowserDialog();
@@ -87,6 +92,7 @@ namespace LeagueHudRevolution
             File.WriteAllText(Directory.GetCurrentDirectory() + "\\path.txt", pasta.SelectedPath.ToString());
         }
 
+        //verificar se a pasta hud existe
         private void CheckHUD()
         {
             DirectoryInfo versao = new DirectoryInfo(Directory.GetDirectories(File.ReadAllText(Directory.GetCurrentDirectory() + "\\Path.txt") + "\\RADS\\solutions\\lol_game_client_sln\\releases\\")[0]);

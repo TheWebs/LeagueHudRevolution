@@ -6,17 +6,18 @@
              xmlns:local="clr-namespace:LeagueHudRevolution"
              mc:Ignorable="d" d:DesignWidth="300" Width="800" Height="598">
     <Grid Width="800" Background="#FF2B2B2B" Margin="0,0,0,-3" Height="601">
-        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="99" Margin="10,394,0,0" VerticalAlignment="Top" Width="297" BorderBrush="#FFFF8B00" Foreground="#FFFF8B00" Background="#FF2B2B2B" SelectionChanged="listBox_SelectionChanged"/>
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="197" Margin="10,394,0,0" VerticalAlignment="Top" Width="297" BorderBrush="#FFFF8B00" Foreground="#FFFF8B00" Background="#FF2B2B2B" SelectionChanged="listBox_SelectionChanged"/>
         <Image x:Name="image2" HorizontalAlignment="Left" Height="378" Margin="10,10,0,0" VerticalAlignment="Top" Width="780" Cursor="Hand" MouseUp="image2_MouseUp" Stretch="Fill"/>
-        <Button x:Name="button" Content="Patch!" HorizontalAlignment="Left" Height="80" Margin="312,408,0,0" VerticalAlignment="Top" Width="217" Foreground="#FFFF8000" BorderBrush="#FFFF8B00" Cursor="Hand" Style="{DynamicResource SquareButtonStyle}" Click="button_Click" FontWeight="Bold" FontSize="18.667" FontFamily="Arial Black"/>
+        <Button x:Name="button" HorizontalAlignment="Left" Height="80" Margin="312,408,0,0" VerticalAlignment="Top" Width="217" Foreground="#FFFF8000" BorderBrush="#FFFF8B00" Cursor="Hand" Style="{DynamicResource SquareButtonStyle}" Click="button_Click" FontWeight="Bold" FontSize="18.667" FontFamily="Arial Black" Content="Patch" Drop="button_Drop" KeyDown="button_KeyDown"/>
         <Button x:Name="button1" Content="Restore" Height="80" Margin="573,408,0,0" VerticalAlignment="Top" BorderBrush="#FFFF8B00" Foreground="#FFFF8000" Cursor="Hand" Style="{DynamicResource SquareButtonStyle}" FontWeight="Bold" FontSize="18.667" FontFamily="Arial Black" Click="button1_Click" HorizontalAlignment="Left" Width="217"/>
         <Button x:Name="button2" Content="Button" HorizontalAlignment="Left" Height="56" Margin="534,422,0,0" VerticalAlignment="Top" Width="34" Click="button2_Click" Visibility="Hidden"/>
-        <RichTextBox x:Name="richTextBox" HorizontalAlignment="Left" Height="93" Margin="10,498,0,0" VerticalAlignment="Top" Width="780" BorderBrush="#FFB94C00" Foreground="#FFFF7400" Cursor="Pen" IsDocumentEnabled="False" IsReadOnly="True" >
-            <FlowDocument FontSize="11">
-                <Paragraph>
-                    <Run Text="RichTextBox"/>
-                </Paragraph>
-            </FlowDocument>
-        </RichTextBox>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Height="73" VerticalAlignment="Top" Width="393" ToolTip="" TextWrapping="Wrap" TargetUpdated="textBlock_TargetUpdated" Margin="397,518,0,0" FontSize="18.667">
+            <TextBlock.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="0"/>
+                    <GradientStop Color="#FFFF7400" Offset="1"/>
+                </LinearGradientBrush>
+            </TextBlock.Foreground>
+        </TextBlock>
     </Grid>
 </UserControl>
